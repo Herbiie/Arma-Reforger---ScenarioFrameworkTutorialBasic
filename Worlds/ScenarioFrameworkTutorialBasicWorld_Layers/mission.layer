@@ -1,0 +1,124 @@
+GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/ScenarioFramework/Components/Area.et" {
+ components {
+  SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+   m_sFactionKey "US"
+  }
+ }
+ coords 6835.082 126.658 6507.925
+ {
+  GenericEntity LayerTaskMove1 : "{246BEC080F393398}Prefabs/ScenarioFramework/Components/LayerTaskMove.et" {
+   components {
+    SCR_ScenarioFrameworkLayerTask "{5A2283E9F84958A1}" {
+     m_eActivationType ON_TRIGGER_ACTIVATION
+    }
+   }
+   coords -227.951 30.373 -41.45
+   {
+    GenericEntity TaskExfil1 : "{172146470FF780EB}Prefabs/ScenarioFramework/Compositions/LayerTasks/TaskExfil.et" {
+     components {
+      SCR_ScenarioFrameworkLayerTask "{5A2283E9F84958A1}" {
+       m_bShowDebugShapesDuringRuntime 0
+      }
+     }
+     coords -31.722 1.402 -11.94
+     {
+      GenericEntity SlotExtraction1 {
+       ID "5E74C908F9E2ADC9"
+       components {
+        SCR_ScenarioFrameworkSlotExtraction "{5A1EEEC837EEA27B}" {
+         m_bShowDebugShapesDuringRuntime 0
+         m_aActionsOnFinished {
+          SCR_ScenarioFrameworkActionEndMission "{619ED10D873465FA}" {
+           m_bOverrideGameOverType 1
+           m_eOverriddenGameOverType EDITOR_FACTION_VICTORY
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    GenericEntity SlotAI2 : "{8D43830F02C3F114}Prefabs/ScenarioFramework/Components/SlotAI.et" {
+     components {
+      SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+       m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+       m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{619ED10E1F38AD75}" {
+        m_aLayerName {
+         "SlotWaypoint2"
+        }
+       }
+       m_bBalanceOnPlayersCount 1
+       m_iMinUnitsInGroup 3
+      }
+     }
+     coords -64.932 -14.592 356.77
+     angleY -177.669
+    }
+    GenericEntity SlotWaypoint2 : "{EBD91177954E8236}Prefabs/ScenarioFramework/Components/SlotWaypoint.et" {
+     components {
+      SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+       m_Waypoint SCR_ScenarioFrameworkWaypointMove "{619ED10EDEFE3B9B}" {
+       }
+      }
+     }
+     coords -2.625 0.027 16.275
+    }
+   }
+  }
+  GenericEntity LayerTaskClearArea1 : "{CDC0845AD90BA073}Prefabs/ScenarioFramework/Components/LayerTaskClearArea.et" {
+   coords 33.283 -3.529 90.209
+   {
+    GenericEntity SlotAI1 : "{8D43830F02C3F114}Prefabs/ScenarioFramework/Components/SlotAI.et" {
+     components {
+      SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+       m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+       m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{619ED109E41430BA}" {
+        m_aLayerName {
+         "SlotWaypoint1"
+        }
+       }
+       m_bBalanceOnPlayersCount 1
+       m_iMinUnitsInGroup 2
+      }
+     }
+     coords 16.226 0.238 -5.756
+    }
+    GenericEntity TaskClearArea1 : "{C248387C4E5A9DE8}Prefabs/ScenarioFramework/Compositions/LayerTasks/TaskClearArea.et" {
+     components {
+      SCR_ScenarioFrameworkLayerTaskClearArea "{5A6513F46D132331}" {
+       m_sTaskTitle "Clear the Hamlet"
+       m_sTaskDescription "Destroy all USSR troops in the hamlet"
+      }
+     }
+     coords -5.483 0.971 17.909
+     {
+      GenericEntity SlotClearArea1 {
+       ID "5E9A6605B11E6EF5"
+       components {
+        SCR_ScenarioFrameworkSlotClearArea "{5A633AF525D5B972}" {
+         m_aActionsOnFinished {
+          SCR_ScenarioFrameworkActionSpawnObjects "{619ED10FA77FE897}" {
+           m_aNameOfObjectsToSpawnOnActivation {
+            "LayerTaskMove1"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    GenericEntity SlotWaypoint1 : "{EBD91177954E8236}Prefabs/ScenarioFramework/Components/SlotWaypoint.et" {
+     components {
+      SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+       m_Waypoint SCR_ScenarioFrameworkWaypointDefend "{619ED109872BD3B6}" {
+        m_fCompletionRadius 60
+       }
+      }
+     }
+     coords 2.004 0.173 7.007
+    }
+   }
+  }
+ }
+}
